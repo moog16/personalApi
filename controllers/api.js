@@ -5,3 +5,8 @@ module.exports.getYoutubeVideos = (req, res) => {
     .then(videos => res.send(videos))
     .catch(error => res.send(error));
 }
+
+
+module.exports.getTumblrEntries = (req, res) => {
+  getTumblrEntries()
+}
