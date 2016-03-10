@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const getYoutubeVideos = require('./controllers/api').getYoutubeVideos;
-const getTumblrEntries = require('./controllers/api').getTumblrEntries;
+const get52DinnerBlog = require('./controllers/api').get52DinnerBlog;
 
 const appPath = `../reactPersonalPage/bin/static`;
 const allowCrossDomain = function(req, res, next) {
@@ -17,7 +17,7 @@ app.use(allowCrossDomain);
 
 // routes
 app.get('/v1/youtube', getYoutubeVideos);
-app.get('/tumblr', getTumblrEntries);
+app.get('/v1/tumblr/52dinners', get52DinnerBlog);
 
 // Get the port from environment variables
 var port = process.env.PORT || 3001;

@@ -1,4 +1,5 @@
 const getVideos = require('../services/youtube').getAll;
+const tumblr = require('../services/tumblr');
 
 module.exports.getYoutubeVideos = (req, res) => {
   getVideos()
@@ -7,6 +8,9 @@ module.exports.getYoutubeVideos = (req, res) => {
 }
 
 
-module.exports.getTumblrEntries = (req, res) => {
-  getTumblrEntries()
+module.exports.get52DinnerBlog = (req, res) => {
+  if(!tumblr.isAuthenticated()) {
+    tumblr.authenticate();
+  }
+  tumblr.get52DinnerBlog().then(data => res.send(data));
 }
