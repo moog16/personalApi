@@ -16,7 +16,6 @@ module.exports.getAll = function() {
         const youtubeVideos = [];
         if (!error && response.statusCode == 200) {
           const videos = JSON.parse(body).items;
-          console.log(videos)
           if(videos && videos.length) {
             for(var i=0; i<videos.length; i++) {
               var id = videos[i].contentDetails.videoId;
