@@ -16,11 +16,18 @@ module.exports.getAll = function() {
         const youtubeVideos = [];
         if (!error && response.statusCode == 200) {
           const videos = JSON.parse(body).items;
+          console.log(videos)
           if(videos && videos.length) {
             for(var i=0; i<videos.length; i++) {
-              var videoId = videos[i].contentDetails.videoId;
-              var videoUrl = `${process.env.YOUTUBE_BASE_URL}${videoId}`;
-              youtubeVideos.push({url: videoUrl, id: videoId});
+              var id = videos[i].contentDetails.videoId;
+              var url = `${process.env.YOUTUBE_BASE_URL}${id}`;
+              var title = videos[i].snippet.title;
+              var description = videos[i].snippet.description;
+              youtubeVideos.push({
+                url,
+                id,
+                title,
+                description});
             }
           }
           cachedVideos = youtubeVideos;
