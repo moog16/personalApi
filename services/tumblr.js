@@ -1,5 +1,4 @@
 const dotenv = require('dotenv');
-const request = require('request');
 const Promise = require('promise');
 const tumblr = require('tumblr.js');
 

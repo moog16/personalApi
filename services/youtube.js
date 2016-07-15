@@ -22,10 +22,12 @@ module.exports.getAll = function() {
               var url = `${process.env.YOUTUBE_BASE_URL}${id}`;
               var title = videos[i].snippet.title;
               var description = videos[i].snippet.description;
+              var thumbnail = videos[i].snippet.thumbnails.medium;
               youtubeVideos.push({
                 url,
                 id,
                 title,
+                thumbnail,
                 description});
             }
           }
